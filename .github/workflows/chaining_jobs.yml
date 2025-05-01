@@ -41,11 +41,13 @@ jobs:
     steps:
     - name: Output for Job 3
       run: echo "Hello from Job 3"
+    - name: Make Job 3 fail
+      run: exit 1
 
   job-4:
     name: Job 4
     runs-on: ubuntu-latest
-    if: always()
+    # if: always()
     needs:
       - job-2
       - job-3
